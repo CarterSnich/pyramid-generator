@@ -3,8 +3,10 @@ $totalBricks = 0;
 $totalOddBricks = 0;
 $totalEvenBricks = 0;
 
-if (isset($_GET['numberOfLayers'])) {
-    for ($i = 1; $i <= $_GET['numberOfLayers']; $i++) {
+if (isset($_GET['submit'])) {
+    $numberOfLayers = $_GET['numberOfLayers'];
+
+    for ($i = 1; $i <= $numberOfLayers; $i++) {
         $totalBricks = $totalBricks + $i;
 
         if ($i % 2 == 0) {
@@ -155,7 +157,7 @@ if (isset($_GET['numberOfLayers'])) {
             <div id="generator-control-wrapper">
                 <form id="input-wrapper" method="GET">
                     <label for="">Number of layers</label>
-                    <input type="text" name="numberOfLayers">
+                    <input type="text" name="numberOfLayers" value="<?php if (isset($numberOfLayers)) echo $numberOfLayers ?>">
                     <div>
                         <button type="submit" name="submit">Submit</button>
                         <button type="submit" name="clear">Clear</button>
@@ -179,8 +181,8 @@ if (isset($_GET['numberOfLayers'])) {
 
             <div id="pyramid-output-wrapper">
                 <div id="rows">
-                    <?php if (isset($_GET['numberOfLayers'])) : ?>
-                        <?php for ($i = 1; $i <= $_GET['numberOfLayers']; $i++) : ?>
+                    <?php if (isset($numberOfLayers)) : ?>
+                        <?php for ($i = 1; $i <= $numberOfLayers; $i++) : ?>
                             <div class="row <?= $i % 2 == 0 ? 'evenNumber' : 'oddNumber' ?>">
                                 <?php for ($j = 1; $j <= $i; $j++) : ?>
                                     <?php $totalBricks++; ?>
