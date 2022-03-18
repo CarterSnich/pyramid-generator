@@ -171,7 +171,6 @@ if (isset($_GET['numberOfLayers'])) {
             </div>
 
             <div id="pyramid-output-wrapper">
-
                 <?php if (isset($_GET['numberOfLayers'])) : ?>
                     <?php for ($i = 1; $i <= $_GET['numberOfLayers']; $i++) : ?>
                         <div class="row <?= $i % 2 == 0 ? 'evenNumber' : 'oddNumber' ?>">
@@ -182,7 +181,6 @@ if (isset($_GET['numberOfLayers'])) {
                         </div>
                     <?php endfor ?>
                 <?php endif ?>
-                
             </div>
 
 
