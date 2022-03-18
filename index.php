@@ -107,9 +107,16 @@ if (isset($_GET['numberOfLayers'])) {
 
         #pyramid-output-wrapper {
             display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        #pyramid-output-wrapper #rows {
+            display: flex;
             justify-content: center;
             flex-flow: column;
         }
+
 
         .row {
             display: flex;
@@ -171,16 +178,18 @@ if (isset($_GET['numberOfLayers'])) {
             </div>
 
             <div id="pyramid-output-wrapper">
-                <?php if (isset($_GET['numberOfLayers'])) : ?>
-                    <?php for ($i = 1; $i <= $_GET['numberOfLayers']; $i++) : ?>
-                        <div class="row <?= $i % 2 == 0 ? 'evenNumber' : 'oddNumber' ?>">
-                            <?php for ($j = 1; $j <= $i; $j++) : ?>
-                                <?php $totalBricks++; ?>
-                                <p class="<?= $j == 1 || $j == $i ? 'yellow' : '' ?>"><?= $i ?></p>
-                            <?php endfor ?>
-                        </div>
-                    <?php endfor ?>
-                <?php endif ?>
+                <div id="rows">
+                    <?php if (isset($_GET['numberOfLayers'])) : ?>
+                        <?php for ($i = 1; $i <= $_GET['numberOfLayers']; $i++) : ?>
+                            <div class="row <?= $i % 2 == 0 ? 'evenNumber' : 'oddNumber' ?>">
+                                <?php for ($j = 1; $j <= $i; $j++) : ?>
+                                    <?php $totalBricks++; ?>
+                                    <p class="<?= $j == 1 || $j == $i ? 'yellow' : '' ?>"><?= $i ?></p>
+                                <?php endfor ?>
+                            </div>
+                        <?php endfor ?>
+                    <?php endif ?>
+                </div>
             </div>
 
 
