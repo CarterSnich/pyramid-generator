@@ -183,10 +183,10 @@ if (isset($_GET['submit'])) {
                 <div id="rows">
                     <?php if (isset($numberOfLayers)) : ?>
                         <?php for ($i = 1; $i <= $numberOfLayers; $i++) : ?>
-                            <div class="row <?= $i % 2 == 0 ? 'evenNumber' : 'oddNumber' ?>">
+                            <div class="row yellow">
                                 <?php for ($j = 1; $j <= $i; $j++) : ?>
                                     <?php $totalBricks++; ?>
-                                    <p class="<?= $j == 1 || $j == $i ? 'yellow' : '' ?>"><?= $i ?></p>
+                                    <p class="<?= $j == 1 || $j == $i ? $i ℅ 2 == 0 ? 'evenNumber' : 'oddNumber' : '' ?>"><?= $i ?></p>
                                 <?php endfor ?>
                             </div>
                         <?php endfor ?>
